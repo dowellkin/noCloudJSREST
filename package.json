@@ -1,5 +1,5 @@
 {
-  "name": "@dowellkin/nocloudjsrest",
+  "name": "nocloudjsrest",
   "version": "1.0.0",
   "description": "nocloud js library for REST API",
   "main": "index.js",
