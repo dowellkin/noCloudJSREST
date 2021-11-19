@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Namespaces from './namespaces.js';
+import Accounts from './accounts.js';
 
 class Api{
 	constructor(host = 'http://localhost/', port = 8000){
@@ -10,30 +11,27 @@ class Api{
 		})
 
 		this.namespaces = new Namespaces(this);
+		this.accounts = new Accounts(this);
+	}
+
+	request(type, url, data = {}){
+		return new Promise((resolve, reject) => {
+			this.axios[type](url, data)
+			.then(res => resolve(res.data))
+			.catch(reject)
+		})
 	}
 
 	post(url, data){
-		return new Promise((resolve, reject) => {
-			this.axios.post(url, data)
-			.then(res => resolve(res.data))
-			.catch(reject)
-		})
+		return this.request('post', url, data);
 	}
 
 	get(url, params = {}){
-		return new Promise((resolve, reject) => {
-			this.axios.get(url, params)
-			.then(res => resolve(res.data))
-			.catch(reject)
-		})
+		return this.request('get', url, params);
 	}
 
 	delete(url, params = {}){
-		return new Promise((resolve, reject) => {
-			this.axios.delete(url, params)
-			.then(res => resolve(res.data))
-			.catch(reject)
-		})
+		return this.request('delete', url, params);
 	}
 
 	getToken(username, password){
