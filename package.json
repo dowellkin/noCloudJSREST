@@ -1,5 +1,5 @@
 {
-  "name": "nocloudjsrest",
+  "name": "@dowellkin/nocloudjsrest",
   "version": "1.0.0",
   "description": "nocloud js library for REST API",
   "main": "index.js",
@@ -11,5 +11,9 @@
   "dependencies": {
     "axios": "^0.24.0"
   },
-	"type": "module"
+	"type": "module",
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/dowellkin/noCloudJSREST.git"
+  }
 }
