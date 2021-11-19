@@ -8,6 +8,8 @@ class Api{
 		this.axios = axios.create({
 			baseURL: _host.href
 		})
+
+		this.namespaces = new Namespaces(this);
 	}
 
 	post(url, data){
