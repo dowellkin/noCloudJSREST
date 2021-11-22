@@ -17,8 +17,8 @@ class Namespaces{
 	join(namespace, {account, access, role}){
 		return this.api.post(`/${this.moduleBase}/${namespace}/link`, {
 			account,
-			access: access ?? '1',
-			role: role ?? 'default'
+			access: access === undefined ? '1' : access,
+			role: role === undefined ? 'default' : role
 		})
 	}
 
