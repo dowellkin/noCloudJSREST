@@ -3,12 +3,21 @@ import Namespaces from './namespaces.js';
 import Accounts from './accounts.js';
 
 class Api{
-	constructor(host = 'http://localhost/', port = 8000){
-		const _host = new URL(host);
-		_host.port = port;
+	constructor(host = 'http://localhost/', port = undefined){
+
 		this.axios = axios.create({
-			baseURL: _host.href
+		
 		})
+		
+		if(host[0] != '/'){
+			const _host = new URL(host);
+			if(port){
+				_host.port = port;
+			}
+			this.axios.defaults.baseURL = _host.href;
+		} else {
+			this.axios.defaults.baseURL = host;
+		}
 
 		this.namespaces = new Namespaces(this);
 		this.accounts = new Accounts(this);
