@@ -3,7 +3,7 @@ import Namespaces from './namespaces.js';
 import Accounts from './accounts.js';
 
 class Api{
-	constructor(host = 'http://localhost/', port = undefined){
+	constructor(host = '/', port = undefined){
 
 		this.axios = axios.create({
 		
