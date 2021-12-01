@@ -3,6 +3,7 @@ import Namespaces from './modules/namespaces.js';
 import Accounts from './modules/accounts.js';
 import Health from './modules/health.js';
 import ServicesProviders from './modules/servicesProviders.js';
+import Services from './modules/services.js';
 
 class Api{
 	constructor(host = '/', port = undefined){
@@ -25,6 +26,7 @@ class Api{
 		this.accounts = new Accounts(this);
 		this.health = new Health(this);
 		this.servicesProviders = new ServicesProviders(this);
+		this.services = new Services(this);
 	}
 
 	request(type, url, data = {}){
