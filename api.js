@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Namespaces from './modules/namespaces.js';
 import Accounts from './modules/accounts.js';
+import Health from './modules/health.js';
 
 class Api{
 	constructor(host = '/', port = undefined){
@@ -21,6 +22,7 @@ class Api{
 
 		this.namespaces = new Namespaces(this);
 		this.accounts = new Accounts(this);
+		this.health = new Health(this);
 	}
 
 	request(type, url, data = {}){
