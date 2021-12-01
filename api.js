@@ -8,9 +8,7 @@ import Services from './modules/services.js';
 class Api{
 	constructor(host = '/', port = undefined){
 
-		this.axios = axios.create({
-		
-		})
+		this.axios = axios.create({})
 		
 		if(host[0] != '/'){
 			const _host = new URL(host);
@@ -49,8 +47,14 @@ class Api{
 		return this.request('delete', url, params);
 	}
 
-	getToken(username, password){
+	authorizeCustom(auth){
 		return this.post('/token', {
+			auth
+		})
+	}
+
+	authorizeStandard(username, password){
+		return this.authorizeCustom({
 			"auth": {
 				"type": "standard",
 				"data": [username, password]
@@ -60,14 +64,18 @@ class Api{
 
 	auth(username, password){
 		return new Promise((resolve, reject) => {
-			this.getToken(username, password)
+			this.authorizeStandard(username, password)
 			.then(res => {
-				this.axios = this.axios.create({
-					headers: {'Authorization': 'Bearer ' + res.token}
-				})
+				this.applyToken(res.token)
 				resolve(res)
 			})
 			.catch(reject)
+		})
+	}
+
+	applyToken(token){
+		this.axios = this.axios.create({
+			headers: {'Authorization': 'Bearer ' + token}
 		})
 	}
 
