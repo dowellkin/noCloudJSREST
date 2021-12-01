@@ -1,6 +1,6 @@
 import axios from 'axios';
-import Namespaces from './namespaces.js';
-import Accounts from './accounts.js';
+import Namespaces from './modules/namespaces.js';
+import Accounts from './modules/accounts.js';
 
 class Api{
 	constructor(host = '/', port = undefined){
@@ -66,9 +66,8 @@ class Api{
 	}
 
 	health(){
-		return this.post('/health/probe', {
-				"probe_type": "PING"
-		})
+		console.warn('method depricated. use instance.health.probe() function');
+		return null
 	}
 }
 
