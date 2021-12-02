@@ -48,9 +48,7 @@ class Api{
 	}
 
 	authorizeCustom(auth){
-		return this.post('/token', {
-			auth: auth
-		})
+		return this.post('/token', auth)
 	}
 
 	authorizeStandard(username, password){
