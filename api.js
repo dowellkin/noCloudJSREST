@@ -49,7 +49,7 @@ class Api{
 
 	authorizeCustom(auth){
 		return this.post('/token', {
-			auth
+			auth: auth
 		})
 	}
 
