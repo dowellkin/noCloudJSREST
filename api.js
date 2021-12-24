@@ -43,6 +43,10 @@ class Api{
 		return this.request('put', url, data);
 	}
 
+	patch(url, data){
+		return this.request('patch', url, data);
+	}
+
 	get(url, params = {}){
 		return this.request('get', url, params);
 	}

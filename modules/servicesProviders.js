@@ -16,21 +16,24 @@ class ServicesProviders{
 	}
 
 	create({type, title, secrets, vars}){
-		return this.api.put(`/${this.moduleBase}`, {
-				"type": type,
-				"title": title,
-				"secrets": secrets,
-				"vars": vars
-		})
+		return this.api.put(`/${this.moduleBase}`, this.generate({type, title, secrets, vars}))
 	}
 
 	testConfig({type, title, secrets, vars}){
-		return this.api.post(`/${this.moduleBase}`, {
-				"type": type,
-				"title": title,
-				"secrets": secrets,
-				"vars": vars
-		})
+		return this.api.post(`/${this.moduleBase}`, this.generate({type, title, secrets, vars}))
+	}
+
+	update(uuid, {type, title, secrets, vars}){
+		return this.api.patch(`/${this.moduleBase}/${uuid}`, this.generate({type, title, secrets, vars}))
+	}
+
+	generate({type, title, secrets, vars}){
+		return {
+			"type": type,
+			"title": title,
+			"secrets": secrets,
+			"vars": vars
+		}
 	}
 }
 
