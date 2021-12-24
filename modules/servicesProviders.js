@@ -16,7 +16,7 @@ class ServicesProviders{
 	}
 
 	create({type, title, secrets, vars}){
-		return this.api.post(`/${this.moduleBase}`, {
+		return this.api.put(`/${this.moduleBase}`, {
 				"type": type,
 				"title": title,
 				"secrets": secrets,
@@ -25,7 +25,7 @@ class ServicesProviders{
 	}
 
 	testConfig({type, title, secrets, vars}){
-		return this.api.post(`/${this.moduleBase}/test`, {
+		return this.api.post(`/${this.moduleBase}`, {
 				"type": type,
 				"title": title,
 				"secrets": secrets,

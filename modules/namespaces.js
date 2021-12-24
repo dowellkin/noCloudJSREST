@@ -5,7 +5,7 @@ class Namespaces{
 	}
 
 	create(title){
-		return this.api.post(`/${this.moduleBase}`, {
+		return this.api.put(`/${this.moduleBase}`, {
 			title
 		})
 	}

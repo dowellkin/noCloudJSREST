@@ -5,7 +5,7 @@ class Accounts{
 	}
 
 	create(data){
-		return this.api.post(`/${this.moduleBase}`, data)
+		return this.api.put(`/${this.moduleBase}`, data)
 	}
 
 	get(id){

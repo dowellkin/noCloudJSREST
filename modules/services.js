@@ -27,11 +27,11 @@ class Services{
 	}
 
 	_create(body){
-		return this.api.post(`/${this.moduleBase}`, body)
+		return this.api.put(`/${this.moduleBase}`, body)
 	}
 
 	_testConfig(body){
-		return this.api.post(`/${this.moduleBase}/test`, body)
+		return this.api.post(`/${this.moduleBase}`, body)
 	}
 
 	create({namespace, service}){

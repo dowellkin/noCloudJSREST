@@ -39,6 +39,10 @@ class Api{
 		return this.request('post', url, data);
 	}
 
+	put(url, data){
+		return this.request('put', url, data);
+	}
+
 	get(url, params = {}){
 		return this.request('get', url, params);
 	}
