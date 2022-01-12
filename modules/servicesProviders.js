@@ -35,6 +35,10 @@ class ServicesProviders{
 			"vars": vars
 		}
 	}
+
+	getExtentionsList(){
+		return this.api.get(`${this.moduleBase}-ext`);
+	}
 }
 
 export default ServicesProviders
