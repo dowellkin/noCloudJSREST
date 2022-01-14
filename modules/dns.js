@@ -13,7 +13,7 @@ class DNS{
 	}
 
 	setZone(data){
-		return this.api.put(`/${this.moduleBase}/`, data)
+		return this.api.put(`/${this.moduleBase}`, data)
 	}
 
 	delete(id){
