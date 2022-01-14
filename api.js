@@ -4,6 +4,7 @@ import Accounts from './modules/accounts.js';
 import Health from './modules/health.js';
 import ServicesProviders from './modules/servicesProviders.js';
 import Services from './modules/services.js';
+import dns from './modules/dns.js';
 
 class Api{
 	constructor(host = '/', port = undefined){
@@ -25,6 +26,7 @@ class Api{
 		this.health = new Health(this);
 		this.servicesProviders = new ServicesProviders(this);
 		this.services = new Services(this);
+		this.dns = new dns(this);
 	}
 
 	request(type, url, data = {}){
@@ -64,7 +66,8 @@ class Api{
 			"auth": {
 				"type": "standard",
 				"data": [username, password]
-			}
+			},
+    	"root_claim": true
 		})
 	}
 
