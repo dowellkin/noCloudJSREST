@@ -12,7 +12,7 @@ class DNS{
 		return this.api.get(`/${this.moduleBase}`)
 	}
 
-	setZone(id, data){
+	setZone(data){
 		return this.api.put(`/${this.moduleBase}/`, data)
 	}
 
