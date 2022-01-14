@@ -15,29 +15,20 @@ class ServicesProviders{
 		return this.api.get(`/${this.moduleBase}/${id}`)
 	}
 
-	create({type, title, secrets, vars}){
-		return this.api.put(`/${this.moduleBase}`, this.generate({type, title, secrets, vars}))
+	create(data){
+		return this.api.put(`/${this.moduleBase}`, data)
 	}
 
-	testConfig({type, title, secrets, vars}){
-		return this.api.post(`/${this.moduleBase}`, this.generate({type, title, secrets, vars}))
+	testConfig(data){
+		return this.api.post(`/${this.moduleBase}`, data)
 	}
 
-	update(uuid, {type, title, secrets, vars}){
-		return this.api.patch(`/${this.moduleBase}/${uuid}`, this.generate({type, title, secrets, vars}))
-	}
-
-	generate({type, title, secrets, vars}){
-		return {
-			"type": type,
-			"title": title,
-			"secrets": secrets,
-			"vars": vars
-		}
+	update(uuid, data){
+		return this.api.patch(`/${this.moduleBase}/${uuid}`, data)
 	}
 
 	getExtentionsList(){
-		return this.api.get(`${this.moduleBase}-ext`);
+		return this.api.get(`${this.moduleBase}-ext`)
 	}
 }
 
