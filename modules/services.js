@@ -26,6 +26,10 @@ class Services{
 		})
 	}
 
+	down(uuid, body = {}){
+		return this.api.down(`/${this.moduleBase}/${uuid}`, body)
+	}
+
 	_create(body){
 		return this.api.put(`/${this.moduleBase}`, body)
 	}
