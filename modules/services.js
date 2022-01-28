@@ -51,6 +51,10 @@ class Services{
 			"service": service
 		})
 	}
+
+	delete(id){
+		return this.api.delete(`/${this.moduleBase}/${id}`)
+	}
 }
 
 export default Services;
