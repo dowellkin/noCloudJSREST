@@ -27,7 +27,7 @@ class Services{
 	}
 
 	down(uuid, body = {}){
-		return this.api.down(`/${this.moduleBase}/${uuid}`, body)
+		return this.api.post(`/${this.moduleBase}/${uuid}/down`, body)
 	}
 
 	_create(body){
@@ -54,6 +54,10 @@ class Services{
 
 	delete(id){
 		return this.api.delete(`/${this.moduleBase}/${id}`)
+	}
+
+	action(uuid, action, body){
+		return this.api.post(`/${this.moduleBase}/${uuid}/action/${action}`, body)
 	}
 }
 
