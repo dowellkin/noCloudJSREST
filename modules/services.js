@@ -56,8 +56,8 @@ class Services{
 		return this.api.delete(`/${this.moduleBase}/${id}`)
 	}
 
-	action(uuid, action, body){
-		return this.api.post(`/${this.moduleBase}/${uuid}/action/${action}`, body)
+	action({service, group, instance}, action, body = {}){
+		return this.api.post(`/${this.moduleBase}/${service}/${group}/${instance}/action/${action}`, body)
 	}
 }
 
