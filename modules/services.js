@@ -59,6 +59,10 @@ class Services{
 	action({service, group, instance}, action, body = {}){
 		return this.api.post(`/${this.moduleBase}/${service}/${group}/${instance}/action/${action}`, body)
 	}
+
+	getStates(uuid){
+		return this.api.get(`/${this.moduleBase}/${uuid}/states`)
+	}
 }
 
 export default Services;
