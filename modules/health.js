@@ -4,9 +4,21 @@ class Health{
 		this.moduleBase = 'health'
 	}
 
-	probe(){
+	ping(){
 		return this.api.post(`/${this.moduleBase}/probe`, {
     "probe_type": "PING"
+		})
+	}
+
+	services(){
+		return this.api.post(`/${this.moduleBase}/probe`, {
+    "probe_type": "services"
+		})
+	}
+
+	routines(){
+		return this.api.post(`/${this.moduleBase}/probe`, {
+    "probe_type": "routines"
 		})
 	}
 }
