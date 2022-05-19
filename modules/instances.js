@@ -5,7 +5,7 @@ class Instances {
 	}
 
 	action(instance, method, params = {}) {
-		return this.api.post(`/${this.moduleBase}/${instance}/invoke`, {method, params})
+		return this.api.post(`/${this.moduleBase}/${instance}/invoke`, { method, params })
 	}
 }
 
