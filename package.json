@@ -1,6 +1,6 @@
 {
   "name": "nocloudjsrest",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "description": "nocloud js library for REST API",
   "main": "index.js",
   "scripts": {
