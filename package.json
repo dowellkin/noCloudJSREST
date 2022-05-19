@@ -7,18 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alexandr Korolev",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "axios": "^0.24.0"
   },
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dowellkin/noCloudJSREST.git"
+    "url": "git+https://github.com/slntopp/nocloud.js-rest.git"
   },
   "bugs": {
-    "url": "https://github.com/dowellkin/noCloudJSREST/issues"
+    "url": "https://github.com/slntopp/nocloud.js-rest/issues"
   },
-  "homepage": "https://github.com/dowellkin/noCloudJSREST#readme",
+  "homepage": "https://github.com/slntopp/nocloud",
   "devDependencies": {}
 }
