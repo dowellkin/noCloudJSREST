@@ -7,6 +7,7 @@ import Services from './modules/services.js';
 import dns from './modules/dns.js';
 import Settings from './modules/settings.js';
 import Instances from './module/instances.js';
+import Plans from './modules/plans.js';
 
 class Api{
 	constructor(host = '/', port = undefined){
@@ -31,6 +32,7 @@ class Api{
 		this.dns = new dns(this);
 		this.settings = new Settings(this);
 		this.instances = new Instances(this);
+		this.plans = new Plans(this);
 	}
 
 	request(type, url, data = {}){
