@@ -6,6 +6,7 @@ import ServicesProviders from './modules/servicesProviders.js';
 import Services from './modules/services.js';
 import dns from './modules/dns.js';
 import Settings from './modules/settings.js';
+import Instances from './module/instances.js';
 import Plans from './modules/plans.js';
 
 class Api{
@@ -30,6 +31,7 @@ class Api{
 		this.services = new Services(this);
 		this.dns = new dns(this);
 		this.settings = new Settings(this);
+		this.instances = new Instances(this);
 		this.plans = new Plans(this);
 	}
 
