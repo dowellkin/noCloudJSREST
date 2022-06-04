@@ -6,7 +6,7 @@ import ServicesProviders from './modules/servicesProviders.js';
 import Services from './modules/services.js';
 import dns from './modules/dns.js';
 import Settings from './modules/settings.js';
-import Instances from './module/instances.js';
+import Instances from './modules/instances.js';
 import Plans from './modules/plans.js';
 
 class Api{
