@@ -34,8 +34,8 @@ class Services {
 		return this.api.put(`/${this.moduleBase}`, body)
 	}
 	
-	_update(uuid, body) {
-		return this.api.patch(`/${this.moduleBase}/${uuid}`, body)
+	_update(data) {
+		return this.api.patch(`/${this.moduleBase}/${data.uuid}`, data.service)
 	}
 
 	_testConfig(body) {
