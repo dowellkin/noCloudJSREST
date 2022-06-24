@@ -75,7 +75,7 @@ class Api{
 				"type": "standard",
 				"data": [username, password]
 			},
-    	"root_claim": true
+    	// "root_claim": true
 		})
 	}
 
