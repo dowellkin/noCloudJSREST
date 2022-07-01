@@ -15,15 +15,12 @@ class Services {
 		return this.api.get(`/${this.moduleBase}/${id}`)
 	}
 
-	up(id, instance_group_uuid, services_provider_uuid) {
+	//deploy service
+	up(id) {
 		if (id === undefined) {
 			throw 'id is undefined'
 		}
-		return this.api.post(`/${this.moduleBase}/${id}/up`, {
-			"deploy_policies": {
-				[instance_group_uuid]: services_provider_uuid
-			}
-		})
+		return this.api.post(`/${this.moduleBase}/${id}/up`)
 	}
 
 	down(uuid, body = {}) {
@@ -33,7 +30,7 @@ class Services {
 	_create(body) {
 		return this.api.put(`/${this.moduleBase}`, body)
 	}
-	
+
 	_update(data) {
 		return this.api.patch(`/${this.moduleBase}/${data.uuid}`, data.service)
 	}
