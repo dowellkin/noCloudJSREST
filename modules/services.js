@@ -33,6 +33,13 @@ class Services {
 	_create(body) {
 		return this.api.put(`/${this.moduleBase}`, body)
 	}
+<<<<<<< HEAD
+=======
+	
+	_update(data) {
+		return this.api.patch(`/${this.moduleBase}/${data.uuid}`, data.service)
+	}
+>>>>>>> master
 
 	_testConfig(body) {
 		return this.api.post(`/${this.moduleBase}`, body)
