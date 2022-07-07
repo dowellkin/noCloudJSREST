@@ -69,13 +69,13 @@ class Api{
 		return this.post('/token', auth)
 	}
 
-	authorizeStandard(username, password){
+	authorizeStandard(username, password, root_claim){
 		return this.authorizeCustom({
 			"auth": {
 				"type": "standard",
 				"data": [username, password]
 			},
-    	"root_claim": true
+			root_claim
 		})
 	}
 
