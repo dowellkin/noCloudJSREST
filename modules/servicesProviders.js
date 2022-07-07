@@ -5,7 +5,7 @@ class ServicesProviders{
 	}
 
 	list(){
-		return this.api.get(`/${this.moduleBase}`)
+		return this.api.get(`/${this.moduleBase}`, { params: { anonymously:true } } )
 	}
 
 	get(id){
