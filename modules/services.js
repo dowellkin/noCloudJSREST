@@ -32,7 +32,7 @@ class Services {
 	}
 
 	_update(data) {
-		return this.api.patch(`/${this.moduleBase}/${data.uuid}`, data.service)
+		return this.api.patch(`/${this.moduleBase}/${data.uuid}`, data)
 	}
 
 
