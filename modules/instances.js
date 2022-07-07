@@ -4,8 +4,8 @@ class Instances {
 		this.moduleBase = 'instances'
 	}
 
-	action(instance, method, params = {}) {
-		return this.api.post(`/${this.moduleBase}/${instance}/invoke`, { method, params })
+	action(data, params = {}) {
+		return this.api.post(`/${this.moduleBase}/${data.uuid}/invoke`, { method:data.action, params })
 	}
 }
 
