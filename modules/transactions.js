@@ -4,8 +4,8 @@ class Transactions {
     this.moduleBase = "billing/transactions";
   }
 
-  get(account = "") {
-    return this.api.get(`/${this.moduleBase}`, { params: { account } });
+  get(params) {
+    return this.api.get(`/${this.moduleBase}`, { params });
   }
 
   create(data) {

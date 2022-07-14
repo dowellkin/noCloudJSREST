@@ -4,8 +4,8 @@ class ServicesProviders{
 		this.moduleBase = 'sp'
 	}
 
-	list(){
-		return this.api.get(`/${this.moduleBase}`, { params: { anonymously:true } } )
+	list(anonymously = true){
+		return this.api.get(`/${this.moduleBase}`, { params: { anonymously } } )
 	}
 
 	get(id){
@@ -30,6 +30,14 @@ class ServicesProviders{
 	getExtentionsList(){
 		return this.api.get(`${this.moduleBase}-ext`)
 	}
+
+  bindPlan(uuid, plan_uuid){
+    return this.api.post(`${this.moduleBase}/${uuid}/bind_plan/${plan_uuid}`)
+  }
+
+  unbindPlan(uuid, plan_uuid){
+    return this.api.post(`${this.moduleBase}/${uuid}/unbind_plan/${plan_uuid}`)
+  }
 }
 
 export default ServicesProviders
