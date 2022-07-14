@@ -4,8 +4,8 @@ class Plans {
 		this.moduleBase = 'billing/plans'
 	}
 
-	list(){
-		return this.api.get(`/${this.moduleBase}`, { params: { anonymously:true } } )
+	list(params = { anonymously: true }){
+		return this.api.get(`/${this.moduleBase}`, { params } )
 	}
 
 	get(id){
