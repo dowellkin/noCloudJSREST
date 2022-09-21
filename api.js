@@ -79,6 +79,16 @@ class Api{
 		})
 	}
 
+	authorizeWithType(username, password, type, root_claim){
+		return this.authorizeCustom({
+			"auth": {
+				type,
+				"data": [username, password]
+			},
+			root_claim
+		})
+	}
+
 	auth(username, password){
 		return new Promise((resolve, reject) => {
 			this.authorizeStandard(username, password)
