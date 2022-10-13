@@ -1,7 +1,7 @@
 {
   "name": "nocloudjsrest",
   "version": "1.4.22",
-  "description": "nocloud js library for REST API",
+  "description": "NoCloud REST API Communication Library written in Axios",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
