@@ -15,6 +15,10 @@ class Events{
     cancel(type,id,uuid){
         return this.api.post('/'+this.moduleBase+'/cancel',{type,uuid,id})
     }
+    
+    consume(type,uuid){
+        return this.api.get(`/${this.moduleBase}/sub/${type}/${uuid}`)
+    }
 }
 
 export default Events;
