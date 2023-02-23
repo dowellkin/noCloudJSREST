@@ -10,6 +10,7 @@ import Instances from './modules/instances.js';
 import Plans from './modules/plans.js';
 import Transactions from './modules/transactions.js';
 import Events from "./modules/events";
+import InstanceGroupService from "./modules/instancesGroupService";
 
 class Api{
 	constructor(host = '/', port = undefined){
@@ -37,6 +38,7 @@ class Api{
 		this.plans = new Plans(this);
 		this.transactions = new Transactions(this);
 		this.events = new Events(this);
+		this.instanceGroupService = new InstanceGroupService(this);
 	}
 
 	request(type, url, data = {}){
