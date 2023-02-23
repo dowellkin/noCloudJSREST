@@ -9,6 +9,7 @@ import Settings from './modules/settings.js';
 import Instances from './modules/instances.js';
 import Plans from './modules/plans.js';
 import Transactions from './modules/transactions.js';
+import Events from "./modules/events";
 
 class Api{
 	constructor(host = '/', port = undefined){
@@ -34,7 +35,8 @@ class Api{
 		this.settings = new Settings(this);
 		this.instances = new Instances(this);
 		this.plans = new Plans(this);
-    this.transactions = new Transactions(this);
+		this.transactions = new Transactions(this);
+		this.events = new Events(this);
 	}
 
 	request(type, url, data = {}){
