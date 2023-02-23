@@ -5,7 +5,7 @@ class InstanceGroupService {
     }
 
     move(serviceUUID, instancesGroupUUID) {
-        return this.api.post(`/${this.moduleBase}/${serviceUUId}`, { uuid: serviceUUID, service: instancesGroupUUID })
+        return this.api.post(`/${this.moduleBase}/${serviceUUID}`, { uuid: serviceUUID, service: instancesGroupUUID })
     }
 }
 
