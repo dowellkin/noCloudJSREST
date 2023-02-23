@@ -22,6 +22,13 @@ class Namespaces{
 		})
 	}
 
+	edit(namespace){
+		return  this.api.patch(`/${this.moduleBase}/${namespace.uuid}`, {
+			uuid:namespace.uuid,
+			title:namespace.title,
+		})
+	}
+
 	link(namespace, account){
 		return this.api.post(`/${this.moduleBase}/${namespace}/link`, {
 			account
