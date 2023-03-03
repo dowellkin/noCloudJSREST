@@ -8,8 +8,8 @@ class Transactions {
     return this.api.get(`/${this.moduleBase}`, { params });
   }
 
-  count(){
-    return this.api.get(`/billing/count/transactions `)
+  count(params) {
+    return this.api.get("/billing/count/transactions", { params });
   }
 
   create(data) {
