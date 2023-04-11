@@ -4,8 +4,8 @@ class Services {
 		this.moduleBase = 'services'
 	}
 
-	list() {
-		return this.api.get(`/${this.moduleBase}`)
+	list(params) {
+		return this.api.get(`/${this.moduleBase}`, { params })
 	}
 
 	get(id) {

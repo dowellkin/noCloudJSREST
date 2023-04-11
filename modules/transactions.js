@@ -4,16 +4,24 @@ class Transactions {
     this.moduleBase = "billing/transactions";
   }
 
-  get(params) {
+  list(params) {
     return this.api.get(`/${this.moduleBase}`, { params });
+  }
+
+  get(uuid) {
+    return this.api.get(`/${this.moduleBase}`, { params: { uuid } });
+  }
+
+  create(data) {
+    return this.api.put(`/${this.moduleBase}`, data);
   }
 
   count(params) {
     return this.api.get("/billing/count/transactions", { params });
   }
 
-  create(data) {
-    return this.api.put(`/${this.moduleBase}`, data);
+  records(uuid, params) {
+    return this.api.get(`/${this.moduleBase}/${uuid}`, { params });
   }
 }
 
