@@ -8,8 +8,8 @@ class Transactions {
     return this.api.get(`/${this.moduleBase}`, { params });
   }
 
-  get(uuid, params) {
-    return this.api.get(`/${this.moduleBase}/${uuid}`, { params });
+  get(uuid) {
+    return this.api.get(`/${this.moduleBase}`, { params: { uuid } });
   }
 
   create(data) {
@@ -18,6 +18,10 @@ class Transactions {
 
   count(params) {
     return this.api.get("/billing/count/transactions", { params });
+  }
+
+  records(uuid, params) {
+    return this.api.get(`/${this.moduleBase}/${uuid}`, { params });
   }
 }
 
