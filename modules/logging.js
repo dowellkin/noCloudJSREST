@@ -1,17 +1,20 @@
 class Logging {
-    constructor(api) {
-      this.api = api;
-      this.moduleBase = "logging";
-    }
-  
-    list(params) {
-      return this.api.get("/" + this.moduleBase, params);
-    }
-  
-    count(params) {
-      return this.api.get("/" + this.moduleBase + "/count", params);
-    }
+  constructor(api) {
+    this.api = api;
+    this.moduleBase = "logging";
   }
-  
-  export default Logging;
-  
+
+  list({ requestor, uuid, page, limit, ...params }) {
+    return this.api.get("/" + this.moduleBase, {
+      params: { ...params, requestor, uuid, page, limit },
+    });
+  }
+
+  count({ requestor, uuid, ...params }) {
+    return this.api.get("/" + this.moduleBase + "/count", {
+      params: { ...params, requestor, uuid },
+    });
+  }
+}
+
+export default Logging;
