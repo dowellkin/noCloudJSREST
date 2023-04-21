@@ -4,17 +4,24 @@ class Logging {
     this.moduleBase = "logging";
   }
 
-  list({ requestor, uuid, page, limit, ...params }) {
-    return this.api.get("/" + this.moduleBase, {
-      params: { ...params, requestor, uuid, page, limit },
+  list({ requestor, uuid, page, limit, ...data }) {
+    return this.api.post("/" + this.moduleBase, {
+      ...data,
+      requestor,
+      uuid,
+      page,
+      limit,
     });
   }
 
-  count({ requestor, uuid, ...params }) {
-    return this.api.get("/" + this.moduleBase + "/count", {
-      params: { ...params, requestor, uuid },
+  count({ requestor, uuid, ...data }) {
+    return this.api.post("/" + this.moduleBase + "/count", {
+      ...data,
+      requestor,
+      uuid,
     });
   }
 }
 
 export default Logging;
+
