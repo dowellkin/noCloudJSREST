@@ -31,12 +31,12 @@ class ServicesProviders {
     return this.api.get(`${this.moduleBase}-ext`);
   }
 
-  bindPlan(uuid, plan_uuid) {
-    return this.api.post(`${this.moduleBase}/${uuid}/bind_plan/${plan_uuid}`);
+  bindPlan(uuid, plans) {
+    return this.api.post(`${this.moduleBase}/${uuid}/bind_plan`, { plans });
   }
 
-  unbindPlan(uuid, plan_uuid) {
-    return this.api.post(`${this.moduleBase}/${uuid}/unbind_plan/${plan_uuid}`);
+  unbindPlan(uuid, plans) {
+    return this.api.post(`${this.moduleBase}/${uuid}/unbind_plan`, { plans });
   }
 
   action(data) {
