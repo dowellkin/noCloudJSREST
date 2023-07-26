@@ -12,6 +12,7 @@ import Transactions from './modules/transactions.js';
 import Events from "./modules/events";
 import InstanceGroupService from "./modules/instancesGroupService";
 import Logging from "./modules/logging.js";
+import Showcases from './modules/showcases.js';
 
 class Api{
 	constructor(host = '/', port = undefined){
@@ -41,6 +42,7 @@ class Api{
 		this.events = new Events(this);
 		this.instanceGroupService = new InstanceGroupService(this);
 		this.logging = new Logging(this);
+		this.showcases = new Showcases(this);
 	}
 
 	request(type, url, data = {}){
