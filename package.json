@@ -1,6 +1,6 @@
 {
   "name": "nocloudjsrest",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "NoCloud REST API Communication Library written in Axios",
   "main": "index.js",
   "scripts": {
