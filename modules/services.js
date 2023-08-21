@@ -1,70 +1,95 @@
 class Services {
-	constructor(api) {
-		this.api = api;
-		this.moduleBase = 'services'
-	}
+  constructor(api) {
+    this.api = api;
+    this.moduleBase = "services";
+  }
 
-	list(params) {
-		return this.api.get(`/${this.moduleBase}`, { params })
-	}
+  #minimizeServiceInstaces(service) {
+    service.instancesGroups = service.instancesGroups.map((ig) => {
+      return {
+        ...ig,
+        instances: ig.instances.map((i) => {
+          const billingPlanKey = i.billingPlan ? "billingPlan" : "billing_plan";
+          return {
+            ...i,
+            [billingPlanKey]: { uuid: i[billingPlanKey].uuid },
+          };
+        }),
+      };
+    });
+  }
 
-	get(id) {
-		if (id === undefined) {
-			throw 'id is undefined'
-		}
-		return this.api.get(`/${this.moduleBase}/${id}`)
-	}
+  list(params) {
+    return this.api.get(`/${this.moduleBase}`, { params });
+  }
 
-	//deploy service
-	up(id) {
-		if (id === undefined) {
-			throw 'id is undefined'
-		}
-		return this.api.post(`/${this.moduleBase}/${id}/up`)
-	}
+  get(id) {
+    if (id === undefined) {
+      throw "id is undefined";
+    }
+    return this.api.get(`/${this.moduleBase}/${id}`);
+  }
 
-	down(uuid, body = {}) {
-		return this.api.post(`/${this.moduleBase}/${uuid}/down`, body)
-	}
+  //deploy service
+  up(id) {
+    if (id === undefined) {
+      throw "id is undefined";
+    }
+    return this.api.post(`/${this.moduleBase}/${id}/up`);
+  }
 
-	_create(body) {
-		return this.api.put(`/${this.moduleBase}`, body)
-	}
+  down(uuid, body = {}) {
+    return this.api.post(`/${this.moduleBase}/${uuid}/down`, body);
+  }
 
-	_update(data) {
-		return this.api.patch(`/${this.moduleBase}/${data.uuid}`, data)
-	}
+  _create(body) {
+    return this.api.put(`/${this.moduleBase}`, body);
+  }
 
+  _update(data, { minimize } = { minimize: true }) {
+    if (minimize) {
+      this.#minimizeServiceInstaces(data);
+    }
 
-	_testConfig(body) {
-		return this.api.post(`/${this.moduleBase}`, body)
-	}
+    return this.api.patch(`/${this.moduleBase}/${data.uuid}`, data);
+  }
 
-	create({ namespace, service }) {
-		return this._create({
-			"namespace": namespace,
-			"service": service
-		})
-	}
+  _testConfig(body) {
+    return this.api.post(`/${this.moduleBase}`, body);
+  }
 
-	testConfig({ namespace, service }) {
-		return this._testConfig({
-			"namespace": namespace,
-			"service": service
-		})
-	}
+  create({ namespace, service }, { minimize } = { minimize: true }) {
+    if (minimize) {
+      this.#minimizeServiceInstaces(service);
+    }
 
-	delete(id) {
-		return this.api.delete(`/${this.moduleBase}/${id}`)
-	}
+    return this._create({
+      namespace: namespace,
+      service: service,
+    });
+  }
 
-	action({ service, group, instance }, action, body = {}) {
-		return this.api.post(`/${this.moduleBase}/${service}/${group}/${instance}/action/${action}`, body)
-	}
+  testConfig({ namespace, service }) {
+    return this._testConfig({
+      namespace: namespace,
+      service: service,
+    });
+  }
 
-	getStates(uuid) {
-		return this.api.get(`/${this.moduleBase}/${uuid}/states`)
-	}
+  delete(id) {
+    return this.api.delete(`/${this.moduleBase}/${id}`);
+  }
+
+  action({ service, group, instance }, action, body = {}) {
+    return this.api.post(
+      `/${this.moduleBase}/${service}/${group}/${instance}/action/${action}`,
+      body
+    );
+  }
+
+  getStates(uuid) {
+    return this.api.get(`/${this.moduleBase}/${uuid}/states`);
+  }
 }
 
 export default Services;
