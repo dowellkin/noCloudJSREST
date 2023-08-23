@@ -4,7 +4,7 @@ class Services {
     this.moduleBase = "services";
   }
 
-  #minimizeServiceInstaces(service) {
+  _minimizeServiceInstaces(service) {
     service.instancesGroups = service.instancesGroups.map((ig) => {
       return {
         ...ig,
@@ -48,7 +48,7 @@ class Services {
 
   _update(data, { minimize } = { minimize: true }) {
     if (minimize) {
-      this.#minimizeServiceInstaces(data);
+      this._minimizeServiceInstaces(data);
     }
 
     return this.api.patch(`/${this.moduleBase}/${data.uuid}`, data);
@@ -60,7 +60,7 @@ class Services {
 
   create({ namespace, service }, { minimize } = { minimize: true }) {
     if (minimize) {
-      this.#minimizeServiceInstaces(service);
+      this._minimizeServiceInstaces(service);
     }
 
     return this._create({
