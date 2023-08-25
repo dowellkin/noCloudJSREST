@@ -13,6 +13,7 @@ import Events from "./modules/events";
 import InstanceGroupService from "./modules/instancesGroupService";
 import Logging from "./modules/logging.js";
 import Showcases from './modules/showcases.js';
+import Reports from './modules/reports.js';
 
 class Api{
 	constructor(host = '/', port = undefined){
@@ -43,6 +44,7 @@ class Api{
 		this.instanceGroupService = new InstanceGroupService(this);
 		this.logging = new Logging(this);
 		this.showcases = new Showcases(this);
+		this.reports = new Reports(this);
 	}
 
 	request(type, url, data = {}){
