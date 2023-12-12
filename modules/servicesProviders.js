@@ -4,8 +4,8 @@ class ServicesProviders {
     this.moduleBase = "sp";
   }
 
-  list(anonymously = true) {
-    return this.api.get(`/${this.moduleBase}`, { params: { anonymously } });
+  list(params) {
+    return this.api.get(`/${this.moduleBase}`, { params });
   }
 
   get(id) {

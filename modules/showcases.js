@@ -13,15 +13,15 @@ class Showcases {
   }
 
   update(showcase) {
-    return  this.api.patch(`/${this.moduleBase}/${showcase.uuid}`, showcase)
+    return this.api.patch(`/${this.moduleBase}/${showcase.uuid}`, showcase)
   }
 
   get(uuid) {
     return this.api.get(`/${this.moduleBase}/${uuid}`)
   }
 
-  list(anonymously = true) {
-    return this.api.get(`/${this.moduleBase}`, { params: { anonymously } })
+  list(params) {
+    return this.api.get(`/${this.moduleBase}`, { params })
   }
 }
 
